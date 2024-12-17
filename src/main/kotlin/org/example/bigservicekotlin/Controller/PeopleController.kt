@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/people")
 class PeopleController {
 
-    private var peopleService: PeopleService? = null
+    private lateinit var peopleService: PeopleService;
 
-    fun PeopleController(peopleService: PeopleService?) {
-        this.peopleService = peopleService
+    constructor(peopleService: PeopleService)
+    {
+        this.peopleService=peopleService;
     }
 
 
