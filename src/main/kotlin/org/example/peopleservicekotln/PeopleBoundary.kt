@@ -1,12 +1,27 @@
 package org.example.peopleservicekotln
 
-class PeopleBoundary (    var id: String,
-                          var name:String,
-                          var email:String,
-                          var phone:String){
+import java.util.*
 
-constructor(entity: PeopleEntity) : this(
+data class PeopleBoundary(
+        var id: String?,
+        var name: String,
+        val phone: String,
+        val email: String,
+        )
+{
 
-    entity.id,entity.name,entity.email,entity.phone
-)
+    constructor(entity: PeopleEntity) : this(entity.id.toString(),entity.name,entity.phone,entity.email)
+
+
+
+
+
+    fun toEntity(): PeopleEntity {
+        val pe=PeopleEntity()
+        pe.id= (this.id.toString());
+        pe.email=this.email;
+        pe.name=this.name;
+        pe.phone=this.phone;
+return  pe;
+    }
 }

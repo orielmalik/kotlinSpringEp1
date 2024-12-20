@@ -1,15 +1,13 @@
 package org.example.peopleservicekotln
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-@Entity
-class PeopleEntity (
+import jakarta.persistence.*
+import java.util.*
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+@Entity
+@Table(name = "people")
+class PeopleEntity (
+        @Id
         var id: String,
         var name:String,
         var email:String,
