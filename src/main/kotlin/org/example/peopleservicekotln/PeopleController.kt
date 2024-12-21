@@ -25,8 +25,8 @@ class PeopleController(val peopleService: PeopleService) {
     }
 
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getAll(): List<PeopleBoundary> {
-        return this.peopleService.getAll()
+    fun getAll(@RequestParam("type")type:String,@RequestParam("value")value:String): List<PeopleBoundary> {
+                return this.peopleService.getAll(type, value);
     }
     @DeleteMapping()
     fun deleteAll() {

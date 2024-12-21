@@ -23,11 +23,15 @@ class Validation {
         }
 
         fun isValidFormat(str: String, type: String): Boolean {
+            val pattern:Pattern;
             return when (type.lowercase()) {
+                "phone"->{
+                    pattern = Pattern.compile("^(\\+?\\d{1,4}[\\s-]?)?(\\(?\\d{1,4}\\)?[\\s-]?)?(\\d{1,4}[\\s-]?)\\d{1,4}[\\s-]?\\d{1,4}\$\n$");
+                    pattern.matcher(str).matches()
+                }
                 "email" -> {
-                    val pattern = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
-                    val matcher = pattern.matcher(str)
-                    matcher.matches()
+                     pattern = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
+                    pattern.matcher(str).matches()
                 }
 
                 else -> false

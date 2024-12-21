@@ -11,7 +11,8 @@ class PeopleEntity (
         var id: String,
         var name:String,
         var email:String,
-        var phone:String
-){
+        var phone:String,
+
+        ){
         constructor():this("","","","");
 }
